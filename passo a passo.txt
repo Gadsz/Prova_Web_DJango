@@ -1,0 +1,76 @@
+após inciar o app seguindo os comandos:
+
+$ python3 -m pip install Django djangorestframework
+
+django-admin startproject nome_projeto
+
+$ python3 manage.py startapp nome_app
+
+Você deve ir nas urls do NOME_PROJETO e adicionar o que foi informado lá dentro.
+
+from django.contrib import admin
+from django.urls import path, include # include foi adicionado aqui também com ", include"
+from django.contrib import admin # "from django.contrib import admin" foi adicionado também
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('exemplo_app.urls')), # Essa parte foi adicionada (    path('api/', include('NOME_DO_APP.urls')),)
+]
+
+# APÓS ISSO IR EM SETTINGS no NOME_PROJETO
+
+INSTALLED_APPS = [
+    ‘nome_app',
+    'rest_framework',
+]
+
+
+Após configuração de models, serializers, urls e views.
+
+Rodar makemigrate e o migrate e após isso rodar o runserver.
+
+Após isso ele apresenta um link https que você pode abrir um localhost desse server.
+Com esse link ustilziar ele dentro do Insomnia, copiar e levar até o Insomnia
+
+====================
+
+Instalar o django E django_rest_framework
+$ python3 -m pip install Django djangorestframework
+Criar um projeto django (criar a estrutura de pasta do django - configuração, admin, urls do projeto…)
+django-admin startproject nome_projeto
+Criar meu módulos (pelo menos um)
+$ python3 manage.py startapp nome_app
+3.1) Todo modulo que criar, precisa ser “configurado” no arquivo settings
+
+    ‘nome_app',
+    'rest_framework',
+INSTALLED_APPS = [
+    'nome_app'
+]
+
+3.2) O que eu preciso implementar no app (nome_app) que criei após NOME_PROJETO:
+models.py -> mapeamento objeto relacional, aka, banco de dados
+https://github.com/Gadsz/DJango_3B/blob/main/projeto/spotify/models.py
+
+serializers.py -> o mapeamento de string (json) para objetos
+
+
+views.py -> processo a requisição que chega
+https://github.com/Gadsz/DJango_3B/blob/main/projeto/spotify/views.py
+
+urls.py -> mapeamento da url (endpoint) para qual view vai processar a requisição.
+
+PARA RODAR NO INSOMNIA LEMBRAR DE FAZER O MIGRATE E O RUNSERVER
+
+python3 manage.py makemigrate
+python3 manage.py migrate
+python3 manage.py runserver
+
+No exemplo que eu trabalhei utilizar:
+
+“api” = Padrão para utilização dentro do Insomnia.
+“spotify” = Neste contexto é o nome do meu app.
+
+http://127.0.0.1:8000/api/spotify/
+http://127.0.0.1:8000/
+Caso venha a ser executado corretamente ele irá retornar um 404 page not found, que significa que ele reconheceu a página executada.

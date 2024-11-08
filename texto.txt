@@ -1,0 +1,26 @@
+{
+	"id":
+		"1",
+	"nome":
+		"Supino Reto",
+	"descricao_execucao":
+		"Exercício realizado no banco reto para fortalecer o peitoral, com barra ou halteres."
+}
+
+{
+	"id":
+		"2",
+	"nome":
+		"Agachamento Livre",
+	"descricao_execucao":
+		"Exercício básico para pernas e glúteos, realizado com barra sobre os ombros."
+}
+
+{
+  "id":
+		"3",
+	"nome":
+		"Rosca Direta",
+	"descricao_execucao":
+		"Exercício para bíceps, realizado com barra ou halteres."
+}
